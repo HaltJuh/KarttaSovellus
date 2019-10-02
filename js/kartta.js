@@ -21,7 +21,7 @@ function success(pos) {
 
   paivitaKartta(crd);
 
-  lisaaMarker(crd);
+  lisaaMarker(crd,'olen tässä');
 }
 
 
@@ -31,11 +31,20 @@ function paivitaKartta(crd)
 }
 
 
-function lisaaMarker(crd)
+function lisaaMarker(crd,teksti)
 {
   L.marker([crd.latitude, crd.longitude]).addTo(map)
-  .bindPopup('Olen tässä.')
+  .bindPopup(teksti)
   .openPopup();
+  fetch('https://api.digitransit.fi/routing/v1/routers/finland',{method:'POST',headers:{'Content-Type':'application/json'}})
+      .then(function (tulos)
+  {
+    return tulos;
+  })
+      .then(function(tulos) {
+    console.log(tulos);
+  })
+
 }
 
 
