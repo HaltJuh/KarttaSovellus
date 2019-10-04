@@ -36,7 +36,7 @@ function lisaaMarker(crd,teksti)
   L.marker([crd.latitude, crd.longitude]).addTo(map)
   .bindPopup(teksti)
   .openPopup();
-  fetch('https://api.digitransit.fi/routing/v1/routers/finland',{method:'POST',headers:{'Content-Type':'application/json'}})
+  fetch('https://api.digitransit.fi/routing/v1/routers/finland/index/',{method:'POST',headers:{'Content-Type':'application/json'}})
       .then(function (tulos)
   {
     return tulos;
