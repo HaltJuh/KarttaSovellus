@@ -10,7 +10,54 @@ const options = {
   timeout: 5000,
   maximumAge: 0,
 };
+function pura(purettava) {
+  const purku = purettava.integers()
+  console.log(purku);
+}
 
+function decode(value) {
+
+  var values = decode.integers(value)
+  var points = []
+
+  for( var i = 0; i < values.length; i += 2 ) {
+    points.push([
+      ( values[ i + 0 ] += ( values[ i - 2 ] || 0 ) ) / 1e5,
+      ( values[ i + 1 ] += ( values[ i - 1 ] || 0 ) ) / 1e5,
+    ])
+  }
+
+  return points
+
+}
+
+decode.sign = function( value ) {
+  return value & 1 ? ~( value >>> 1 ) : ( value >>> 1 )
+}
+
+decode.integers = function( value ) {
+
+  var values = []
+  var byte = 0
+  var current = 0
+  var bits = 0
+
+  for (var i = 0; i < value.length; i++) {
+
+    byte = value.charCodeAt(i) - 63
+    current = current | ((byte & 0x1F) << bits)
+    bits = bits + 5
+
+    if (byte < 0x20) {
+      values.push(decode.sign(current))
+      current = 0
+      bits = 0
+    }
+
+  }
+
+  return values
+}
 function success(pos) {
   const crd = pos.coords;
   alkupiste.latitude=crd.latitude;
@@ -80,12 +127,14 @@ function success(pos) {
       }).
       then(function(tulos) {
         const polylinePoints = [];
+        console.log(pura(tulos.data.plan.itineraries[0].legs[0].legGeometry.points));
+        console.log(tulos);
         for(let i = 0;i<tulos.data.plan.itineraries[0].legs.length;i++)
         {
-          polylinePoints.push([tulos.data.plan.itineraries[0].legs[i].from.lat,tulos.data.plan.itineraries[0].legs[i].from.lon]);
+          polylinePoints.push([decode(tulos.data.plan.itineraries[0].legs[i].legGeometry.points)]); //tulos.data.plan.itineraries[0].legs[i].from.lat,tulos.data.plan.itineraries[0].legs[i].from.lon]);
           if(i == tulos.data.plan.itineraries[0].legs.length)
           {
-            polylinePoints.push(tulos.data.plan.itineraries[0].legs[i].to.lat,tulos.data.plan.itineraries[0].legs[i].to.lon);
+            //polylinePoints.push(tulos.data.plan.itineraries[0].legs[i].to.lat,tulos.data.plan.itineraries[0].legs[i].to.lon);
           }
         }
         console.log(tulos.data.plan.itineraries[0].legs);
