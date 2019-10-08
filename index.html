@@ -2,18 +2,20 @@
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
-    <title>Kaupunkipyörä Kartta</title>
+    <title>Title</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.css" rel="stylesheet">
-    <style>
-        #map {
-        width: 66%;
-        padding-top: 33%;
-    }
-    </style>
+
+    <link href="css/karttasovellus.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
+
 </head>
 <body>
+<div id="saa"></div>
 <div id="map"></div>
+
+<!-- kirjastot haetaan ennen omaa js-tiedostoa-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js"></script>
 <script src="js/kartta.js"></script>
+<script src="js/saa.js"></script>
 </body>
 </html>
