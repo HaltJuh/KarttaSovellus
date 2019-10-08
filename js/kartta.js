@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // liitetään kartta elementtiin #map
 const map = L.map('map');
@@ -14,10 +14,11 @@ const options = {
   maximumAge: 0
 };
 
+
 // Funktio, joka ajetaan, kun paikkatiedot on haettu
 function success(pos) {
   const crd = pos.coords;
-
+  console.log('Omat' + crd.latitude + crd.longitude);
   // Tulostetaan paikkatiedot konsoliin
   console.log('Your current position is:');
   console.log(`Latitude : ${crd.latitude}`);
@@ -26,7 +27,8 @@ function success(pos) {
   // näytetään kartta
   paivitaKartta(crd);
   // näytetään markkeri
-  lisaaMarker(crd);
+  haeparkit(crd);
+  omaSijainti(crd, 'Olen tässä', punainenIkoni);
 }
 
 // siirretään kartan päivitys omaan funktioon
@@ -37,10 +39,13 @@ function paivitaKartta(crd) {
 }
 
 // siirretään markkereiden lisäys omaan funktioon
-function lisaaMarker(crd) {
-  L.marker([crd.latitude, crd.longitude]).addTo(map)
-  .bindPopup('Olen tässä.')
-  .openPopup();
+function lisaaMarker(crd,teksti, ikoni, maara, jaljella, osoite) {
+  console.log(crd.lat+' ' +' '+ crd.lng);
+  const kapasiteetti = (+maara) + (+jaljella);
+  L.marker([crd.lat, crd.lng], {icon: ikoni}).addTo(map)
+  .bindPopup('<h3>' + teksti + '</h3>' +  'Pyörien saatavuus: ' + maara + '/' + kapasiteetti
+  + '<br>' + osoite)
+
 }
 
 
