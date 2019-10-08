@@ -56,20 +56,14 @@ function haeparkit(crd) {
       const kapasiteetti = (+maara) + (+paikkojajaljella);
      const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
      marker.addEventListener('click', function(event) {
+         osoite3 = '';
        geoCode(koordinaatit);
          setTimeout(function(){
 
          console.log(osoite3);
        marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti)
-         }, 1000);
+         }, 800);
      });
-
-
-
-
-
-
-
     }
   })
   .catch(function(virhe) {
