@@ -142,7 +142,7 @@ function success(pos) {
         console.log(tulos.data.plan.itineraries[0].legs);
         console.log(polylinePoints);
         const polyline = L.polyline(
-            polylinePoints, {color: väri}
+            polylinePoints
         ).addTo(map);
       });
 
