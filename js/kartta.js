@@ -10,10 +10,6 @@ const options = {
   timeout: 5000,
   maximumAge: 0,
 };
-function pura(purettava) {
-  const purku = purettava.integers()
-  console.log(purku);
-}
 
 function decode(value) {
 
@@ -127,19 +123,27 @@ function success(pos) {
       }).
       then(function(tulos) {
         const polylinePoints = [];
-        console.log(pura(tulos.data.plan.itineraries[0].legs[0].legGeometry.points));
         console.log(tulos);
+        let väri = '';
         for(let i = 0;i<tulos.data.plan.itineraries[0].legs.length;i++)
         {
           polylinePoints.push([decode(tulos.data.plan.itineraries[0].legs[i].legGeometry.points)]); //tulos.data.plan.itineraries[0].legs[i].from.lat,tulos.data.plan.itineraries[0].legs[i].from.lon]);
-          if(i == tulos.data.plan.itineraries[0].legs.length)
+
+          if(i == tulos.data.plan.itineraries[0].legs[0])
           {
             //polylinePoints.push(tulos.data.plan.itineraries[0].legs[i].to.lat,tulos.data.plan.itineraries[0].legs[i].to.lon);
           }
+          else
+          {
+
+          }
         }
+
         console.log(tulos.data.plan.itineraries[0].legs);
         console.log(polylinePoints);
-        const polyline = L.polyline(polylinePoints).addTo(map);
+        const polyline = L.polyline(
+            polylinePoints, {color: väri}
+        ).addTo(map);
       });
 
 }
