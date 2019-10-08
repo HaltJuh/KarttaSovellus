@@ -66,7 +66,8 @@ function success(pos) {
 
   paivitaKartta(crd);
 
-  lisaaMarker(crd, 'olen tässä');
+  omaSijainti(crd, 'olen tässä',punainenIkoni);
+  haeparkit(crd);
   //lisaaMarker(alkupiste,"Alkupiste");
   lisaaMarker(loppupiste, "Loppupiste");
   const asetukset = {
