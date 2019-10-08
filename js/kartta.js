@@ -165,8 +165,7 @@ const loppupiste = {
 function lisaaMarker(crd, teksti) {
   L.marker([crd.latitude, crd.longitude]).
       addTo(map).
-      bindPopup(teksti).
-      openPopup();
+      bindPopup(teksti)
 }
 
 function error(err) {

@@ -55,10 +55,13 @@ function haeparkit(crd) {
       const paikkojajaljella = parkit.stations[i].spacesAvailable;
       const kapasiteetti = (+maara) + (+paikkojajaljella);
      const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
-     marker.addEventListener('click', function() {
+     marker.addEventListener('click', function(event) {
        geoCode(koordinaatit);
-       console.log(osoite3);
+         setTimeout(function(){
+
+         console.log(osoite3);
        marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti)
+         }, 1000);
      });
 
 
@@ -82,7 +85,7 @@ function omaSijainti(crd, teksti, ikoni) {
 }
 L.esri.Support.cors = false;
 var geocodeService = L.esri.Geocoding.geocodeService();
- function geoCode(koordinaatit2) {
+ function geoCode(koordinaatit2){
    let tiedot =  geocodeService.reverse().latlng([koordinaatit2.lat, koordinaatit2.lng]).run(function(error, result) {
     if (error) {
       return;
@@ -91,8 +94,10 @@ var geocodeService = L.esri.Geocoding.geocodeService();
     osoite3 = `${result.address.Match_addr}`;
     //console.log(osoite4);
     //return osoite4;
+
   });
    console.log(tiedot);
+   return;
 }
 const osoite2 =
     'https://nominatim.openstreetmap.org/reverse?format=geojson&';
