@@ -9,13 +9,18 @@ function hae() {
 }
     function tiedot() {
         if (xhrsaa.readyState === 4 && xhrsaa.status === 200) {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 8; i++) {
 
             const saa = JSON.parse(xhrsaa.responseText);
             let lampo = saa.list[i].main.temp.toFixed(0);
             let icon = saa.list[i].weather[0].icon;
             let aika = saa.list[i].dt_txt;
-            tuloste.innerHTML += `<div class="saapalkki"><div class="aika">Klo ${aika.substr(11, 2)}</div><div class="lampo"> ${lampo}°C</div><div class="saakuva"><img src="http://openweathermap.org/img/wn/${icon}@2x.png"></div></div>`;
+            let tuuli = saa.list[i].wind;
+            tuloste.innerHTML += `
+<div class="saapalkki"><div class="aika">Klo ${aika.substr(11, 2)}</div>
+<div class="lampo"> ${lampo}°C</div>
+<div class="saakuva"><img src="http://openweathermap.org/img/wn/${icon}@2x.png"></div><div class="tuuli">💨 ${(tuuli.speed.toFixed(1))} m/s</div>
+</div>`;
             console.log(lampo);
             }
             }
