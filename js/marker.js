@@ -78,14 +78,6 @@ function haeparkit(crd) {
       marker.addEventListener('popupclose', function() {
         marker.setIcon(keltainenIkoni)
       });
-
-
-
-
-
-
-
-
     }
   })
   .catch(function(virhe) {
@@ -113,25 +105,5 @@ var geocodeService = L.esri.Geocoding.geocodeService();
 
   });
    console.log(tiedot);
-   return;
 }
-const osoite2 =
-    'https://nominatim.openstreetmap.org/reverse?format=geojson&';
-function haeparkit2(crd) {
-  const parametrit = `lat=${crd.lat}&lon=${crd.lng}`;
-  const url = osoite2 + parametrit;
-   fetch(url, {
-    mode: 'cors'
-  })
-  .then(function(vastaus) {
-    return vastaus.json();
-  })
-  .then(function(parkit) {
-    console.log(parkit);
-    return parkit.features.properties.address.road;
-  })
-  .catch(function(virhe) {
-    console.log(virhe);
 
-  });
-}
