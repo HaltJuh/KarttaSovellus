@@ -15,13 +15,13 @@ let maalipiste = '<br/><button onclick="asetaMaaranpaa()" type="button" >'+'Aset
 function asetaLahtopiste() {
 alkupiste.latitude = popUpcordinaatit.lat;
 alkupiste.longitude = popUpcordinaatit.lng;
-console.log(alkupiste);
+console.log('alkupiste'+ alkupiste);
 const alkupisteOsoite = document.getElementById('lähtöpiste').innerHTML = osoite3;
 }
 function asetaMaaranpaa() {
   loppupiste.latitude = popUpcordinaatit.lat;
   loppupiste.longitude = popUpcordinaatit.lng;
-  console.log(loppupiste);
+  console.log('loppupiste'+ loppupiste);
   const loppupisteOsoite = document.getElementById('loppupiste').innerHTML = osoite3;
 }
 const haku = document.getElementById('haku');
@@ -68,7 +68,6 @@ decode.integers = function( value ) {
     }
 
   }
-
   return values
 }
 let polyline;
@@ -125,21 +124,28 @@ function navigaatio(lähtö,maali) {
         return tulos.json();
       }).
       then(function(tulos) {
+        console.log(tulos);
+        let aika =  tulos.data.plan.itineraries[0].duration;
+        let minuutit = aika/60
+        let tunnit = minuutit/60;
+        if(tunnit>1)
+        {
+          const time = document.getElementById('aika');
+          tunnit = Math.floor(tunnit);
+          minuutit= Math.floor(minuutit%60);
+          time.innerHTML=tunnit+' tuntia, '+minuutit + 'minuuttia';
+        }
+        else
+        {
+
+        }
+        console.log('Aika '+ aika);
+        console.log('Tunnit ja minuuti '+tunnit+':'+minuutit);
         const polylinePoints = [];
         console.log(tulos);
-        let väri = '';
         for(let i = 0;i<tulos.data.plan.itineraries[0].legs.length;i++)
         {
           polylinePoints.push([decode(tulos.data.plan.itineraries[0].legs[i].legGeometry.points)]); //tulos.data.plan.itineraries[0].legs[i].from.lat,tulos.data.plan.itineraries[0].legs[i].from.lon]);
-
-          if(i == tulos.data.plan.itineraries[0].legs[0])
-          {
-            //polylinePoints.push(tulos.data.plan.itineraries[0].legs[i].to.lat,tulos.data.plan.itineraries[0].legs[i].to.lon);
-          }
-          else
-          {
-
-          }
         }
 
         console.log(tulos.data.plan.itineraries[0].legs);
@@ -159,15 +165,7 @@ function navigaatio(lähtö,maali) {
 
 function success(pos) {
   const crd = pos.coords;
-  alkupiste.latitude=crd.latitude;
-  alkupiste.longitude=crd.longitude;
-  console.log(alkupiste);
   //navigaatio(alkupiste,loppupiste)
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`More or less ${crd.accuracy} meters.`);
-
   paivitaKartta(crd);
 
   omaSijainti(crd, 'Olet tässä',punainenIkoni);
