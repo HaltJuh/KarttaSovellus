@@ -17,7 +17,15 @@
 <div id="map"></div>
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
-
+<div id="navigaatio" class="visible">
+    <h4>Navigaatio palkki</h4>
+    <p>Lähtöpiste:</p>
+    <textarea class="tekstialue" id="lähtöpiste" readonly></textarea>
+    <p>Määränpää:</p>
+    <textarea class="tekstialue" id="loppupiste" readonly></textarea>
+    <p></p>
+    <button id="haku">Hae reitti</button>
+</div>
 <!-- Load Esri Leaflet from CDN -->
 <script src="https://unpkg.com/esri-leaflet"></script>
 

@@ -64,7 +64,6 @@ function haeparkit(crd) {
                     marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' + paikkojajaljella + '/' + kapasiteetti)
                 }, 1000);
             });
-        /*}*/
     }
   })
   .catch(function(virhe) {
@@ -73,10 +72,14 @@ function haeparkit(crd) {
   });
 }
 function omaSijainti(crd, teksti, ikoni) {
+
   console.log(crd.latitude+' ' +' '+ crd.longitude);
-  L.marker([crd.latitude, crd.longitude], {icon: ikoni}).addTo(map)
-  .bindPopup(teksti)
+  const omaMarker = L.marker([crd.latitude, crd.longitude], {icon: ikoni}).addTo(map)
+  .bindPopup(teksti + lähtöpiste)
   .openPopup();
+    osoite3 = 'Sinun sijanti';
+    popUpcordinaatit.lat = crd.latitude;
+    popUpcordinaatit.lng = crd.longitude;
 }
 L.esri.Support.cors = false;
 var geocodeService = L.esri.Geocoding.geocodeService();
