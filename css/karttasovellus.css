@@ -1,9 +1,18 @@
 ﻿/*Kartta ja navigointi tiedot*/
 #map {
-    width: 70%;
-    height: 570px;
+    width: 65%;
+    height: 90%;
     position: absolute;
     right: 0;
+}
+#navigaatioJaOhjeet
+{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    background-color: #FCE903;
+    padding-left: 10px;
+    
 }
 
 .tekstialue
@@ -50,6 +59,10 @@ h1 {
     border-bottom: 2px;
     border: black;
 }
+#mapJaSaa
+{
+
+}
 #saa {
     overflow: visible;
     height: 0px;
@@ -57,7 +70,7 @@ h1 {
     position: relative;
     float: right;
     font-family: 'Varela', sans-serif;
-    height: 555px;
+    height: 635px;
     overflow-y: scroll;
     width: 112px;
     margin-right: -8px;
