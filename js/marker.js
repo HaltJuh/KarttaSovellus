@@ -96,6 +96,11 @@ function omaSijainti(crd, teksti, ikoni) {
     osoite3 = 'Sinun sijanti';
     popUpcordinaatit.lat = crd.latitude;
     popUpcordinaatit.lng = crd.longitude;
+    omaMarker.on('click',function() {
+      osoite3 = 'Sinun sijanti';
+      popUpcordinaatit.lat = crd.latitude;
+      popUpcordinaatit.lng = crd.longitude;
+    })
 }
 L.esri.Support.cors = false;
 var geocodeService = L.esri.Geocoding.geocodeService();
