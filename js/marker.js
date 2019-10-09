@@ -56,6 +56,8 @@ function haeparkit(crd) {
             const kapasiteetti = (+maara) + (+paikkojajaljella);
             const marker = L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
             marker.addEventListener('click', function (event) {
+              popUpcordinaatit.lat=marker.getLatLng().lat;
+              popUpcordinaatit.lng =marker.getLatLng().lng;
                 osoite3 = 'Ei osoitetta';
                 geoCode(koordinaatit);
                 setTimeout(function () {
