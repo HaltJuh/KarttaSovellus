@@ -1,17 +1,31 @@
+﻿/*Kartta ja navigointi tiedot*/
 #map {
-    width: 100%;
+    width: 70%;
     height: 570px;
     position: absolute;
+    right: 0;
 }
+
+.tekstialue
+{
+    width: 250px;
+    height: 20px;
+}
+.visible
+{
+
+}
+/*Kartta ja navigointi tiedot päättyy*/
+
 h1 {
     color: white;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
 }
 #otsikko {
     background-color: background: rgb(0,0,0);
@@ -21,6 +35,7 @@ h1 {
     margin-bottom: 3px;
     margin-right: -7px;
 }
+
 /*Saatiedot*/
 .lampo {
     position: relative;
@@ -30,7 +45,10 @@ h1 {
 .saapalkki {
     background: rgba(57, 83, 53, 0.63);
     width: fit-content;
+    height: fit-content;
     padding-left: 5px;
+    border-bottom: 2px;
+    border: black;
 }
 #saa {
     overflow: visible;
