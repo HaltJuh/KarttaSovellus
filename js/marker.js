@@ -55,15 +55,19 @@ function haeparkit(crd) {
       const paikkojajaljella = parkit.stations[i].spacesAvailable;
       const kapasiteetti = (+maara) + (+paikkojajaljella);
      const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
-     marker.on('click', function() {
-      console.log(marker.getLatLng())
+
+     marker.addEventListener('click', function(event) {
+         osoite3 = '';
+
        geoCode(koordinaatit);
          setTimeout(function(){
 
          console.log(osoite3);
 
+
        marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti +lähtöpiste + maalipiste)
          }, 500);
+
      });
     }
   })

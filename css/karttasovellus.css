@@ -1,10 +1,11 @@
-/*Kartta ja navigointi tiedot*/
+﻿/*Kartta ja navigointi tiedot*/
 #map {
     width: 70%;
     height: 570px;
     position: absolute;
     right: 0;
 }
+
 .tekstialue
 {
     width: 250px;
@@ -15,6 +16,26 @@
 
 }
 /*Kartta ja navigointi tiedot päättyy*/
+
+h1 {
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+#otsikko {
+    background-color: background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(58,58,58,0.846673703661152) 100%, rgba(255,255,255,0) 100%);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 3px;
+    margin-right: -7px;
+}
+
 /*Saatiedot*/
 .lampo {
     position: relative;
