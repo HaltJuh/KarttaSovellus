@@ -16,6 +16,15 @@ const keltainenIkoni = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
+const vihreaIkoni = new L.Icon({
+  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
 let osoite3;
 const osoite =
     'http://api.digitransit.fi/routing/v1/routers/hsl/bike_rental';
@@ -58,11 +67,17 @@ function haeparkit(crd) {
      marker.addEventListener('click', function(event) {
        geoCode(koordinaatit);
          setTimeout(function(){
-
          console.log(osoite3);
        marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti)
          }, 1000);
      });
+      marker.addEventListener('popupopen', function() {
+        marker.setIcon(vihreaIkoni)
+      });
+      marker.addEventListener('popupclose', function() {
+        marker.setIcon(keltainenIkoni)
+      });
+
 
 
 
