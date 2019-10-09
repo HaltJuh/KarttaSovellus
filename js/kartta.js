@@ -133,11 +133,13 @@ function navigaatio(lähtö,maali) {
           const time = document.getElementById('aika');
           tunnit = Math.floor(tunnit);
           minuutit= Math.floor(minuutit%60);
-          time.innerHTML=tunnit+' tuntia, '+minuutit + 'minuuttia';
+          time.innerHTML=tunnit+' tuntia, '+minuutit + ' minuuttia';
         }
         else
         {
-
+          const time = document.getElementById('aika');
+          minuutit= Math.floor(minuutit);
+          time.innerHTML= minuutit + ' minuuttia';
         }
         console.log('Aika '+ aika);
         console.log('Tunnit ja minuuti '+tunnit+':'+minuutit);
