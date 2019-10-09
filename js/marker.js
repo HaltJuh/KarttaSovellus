@@ -57,6 +57,8 @@ function haeparkit(crd) {
      const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
 
      marker.addEventListener('click', function(event) {
+       popUpcordinaatit.lat=marker.getLatLng().lat;
+       popUpcordinaatit.lng =marker.getLatLng().lng;
          osoite3 = '';
        geoCode(koordinaatit);
          setTimeout(function(){
@@ -73,10 +75,14 @@ function haeparkit(crd) {
   });
 }
 function omaSijainti(crd, teksti, ikoni) {
+
   console.log(crd.latitude+' ' +' '+ crd.longitude);
-  L.marker([crd.latitude, crd.longitude], {icon: ikoni}).addTo(map)
+  const omaMarker = L.marker([crd.latitude, crd.longitude], {icon: ikoni}).addTo(map)
   .bindPopup(teksti + lähtöpiste)
   .openPopup();
+    osoite3 = 'Sinun sijanti';
+    popUpcordinaatit.lat = crd.latitude;
+    popUpcordinaatit.lng = crd.longitude;
 }
 L.esri.Support.cors = false;
 var geocodeService = L.esri.Geocoding.geocodeService();

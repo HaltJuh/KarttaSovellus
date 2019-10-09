@@ -12,11 +12,17 @@ const options = {
 };
 let lähtöpiste = '<br/><button onclick="asetaLahtopiste()" type="button" >'+'Aseta lähtöpisteeksi'+'</button>';
 let maalipiste = '<br/><button onclick="asetaMaaranpaa()" type="button" >'+'Aseta määränpääksi'+'</button>';
-function asetaLahtopiste(lahto) {
-console.log(L.getPopup().getLatLng());
+function asetaLahtopiste() {
+alkupiste.latitude = popUpcordinaatit.lat;
+alkupiste.longitude = popUpcordinaatit.lng;
+console.log(alkupiste);
+const alkupisteOsoite = document.getElementById('lähtöpiste').innerHTML = osoite3;
 }
-function asetaMaaranpaa(maali) {
-console.log(maali);
+function asetaMaaranpaa() {
+  loppupiste.latitude = popUpcordinaatit.lat;
+  loppupiste.longitude = popUpcordinaatit.lng;
+  console.log(loppupiste);
+  const loppupisteOsoite = document.getElementById('loppupiste').innerHTML = osoite3;
 }
 const haku = document.getElementById('haku');
 haku.addEventListener('click',function() {
@@ -65,8 +71,8 @@ decode.integers = function( value ) {
 
   return values
 }
+let polyline;
 function navigaatio(lähtö,maali) {
-
   const asetukset = {
 
     method: 'POST',
@@ -138,7 +144,13 @@ function navigaatio(lähtö,maali) {
 
         console.log(tulos.data.plan.itineraries[0].legs);
         console.log(polylinePoints);
-        const polyline = L.polyline(
+
+        if (polyline != undefined)
+        {
+          console.log('removing' + polyline);
+          map.removeLayer(polyline);
+        }
+         polyline = L.polyline(
             polylinePoints
         ).addTo(map);
       });
@@ -167,14 +179,18 @@ function success(pos) {
 function paivitaKartta(crd) {
   map.setView([crd.latitude, crd.longitude], 13);
 }
-
+let popUpOsoite = '';
+const popUpcordinaatit = {
+  lat: 0,
+  lng: 0
+};
 const alkupiste = {
   latitude :  0,
   longitude : 0
 };
 const loppupiste = {
-  latitude : 60.168992,
-  longitude: 24.932366
+  latitude : 0,
+  longitude: 0
 };
 
 function lisaaMarker(crd, teksti) {
