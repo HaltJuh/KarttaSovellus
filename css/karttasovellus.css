@@ -1,8 +1,20 @@
+/*Kartta ja navigointi tiedot*/
 #map {
-    width: 100%;
+    width: 70%;
     height: 570px;
     position: absolute;
+    right: 0;
 }
+.tekstialue
+{
+    width: 250px;
+    height: 20px;
+}
+.visible
+{
+
+}
+/*Kartta ja navigointi tiedot päättyy*/
 /*Saatiedot*/
 .lampo {
     position: relative;
@@ -12,6 +24,7 @@
 .saapalkki {
     background: rgba(57, 83, 53, 0.63);
     width: fit-content;
+    height: fit-content;
     padding-left: 5px;
 }
 #saa {

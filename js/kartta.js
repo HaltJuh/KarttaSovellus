@@ -10,7 +10,18 @@ const options = {
   timeout: 5000,
   maximumAge: 0,
 };
-
+let lähtöpiste = '<br/><button onclick="asetaLahtopiste()" type="button" >'+'Aseta lähtöpisteeksi'+'</button>';
+let maalipiste = '<br/><button onclick="asetaMaaranpaa()" type="button" >'+'Aseta määränpääksi'+'</button>';
+function asetaLahtopiste(lahto) {
+console.log(L.getPopup().getLatLng());
+}
+function asetaMaaranpaa(maali) {
+console.log(maali);
+}
+const haku = document.getElementById('haku');
+haku.addEventListener('click',function() {
+  navigaatio(alkupiste,loppupiste);
+})
 function decode(value) {
 
   var values = decode.integers(value)
@@ -54,30 +65,16 @@ decode.integers = function( value ) {
 
   return values
 }
-function success(pos) {
-  const crd = pos.coords;
-  alkupiste.latitude=crd.latitude;
-  alkupiste.longitude=crd.longitude;
-  console.log(alkupiste);
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`More or less ${crd.accuracy} meters.`);
+function navigaatio(lähtö,maali) {
 
-  paivitaKartta(crd);
-
-  omaSijainti(crd, 'Olen tässä',punainenIkoni);
-  haeparkit(crd);
-  //lisaaMarker(alkupiste,"Alkupiste");
-  lisaaMarker(loppupiste, "Loppupiste");
   const asetukset = {
 
     method: 'POST',
     headers: {'Content-Type': 'application/graphql'},
     body: `{
   plan(
-    fromPlace: "${alkupiste.latitude},${alkupiste.longitude}",
-    toPlace: "60.168992,24.932366",
+    fromPlace: "${lähtö.latitude},${lähtö.longitude}",
+    toPlace: "${maali.latitude},${maali.longitude}",
     numItineraries: 1,
     transportModes: [{mode: BICYCLE, qualifier: RENT}],
   ) {
@@ -116,7 +113,6 @@ function success(pos) {
   }
 }`,
   };
-
   fetch('https://api.digitransit.fi/routing/v1/routers/finland/index/graphql',
       asetukset).
       then(function(tulos) {
@@ -146,7 +142,26 @@ function success(pos) {
             polylinePoints
         ).addTo(map);
       });
+}
 
+
+function success(pos) {
+  const crd = pos.coords;
+  alkupiste.latitude=crd.latitude;
+  alkupiste.longitude=crd.longitude;
+  console.log(alkupiste);
+  //navigaatio(alkupiste,loppupiste)
+  console.log('Your current position is:');
+  console.log(`Latitude : ${crd.latitude}`);
+  console.log(`Longitude: ${crd.longitude}`);
+  console.log(`More or less ${crd.accuracy} meters.`);
+
+  paivitaKartta(crd);
+
+  omaSijainti(crd, 'Olet tässä',punainenIkoni);
+  haeparkit(crd);
+  //lisaaMarker(alkupiste,"Alkupiste");
+  lisaaMarker(loppupiste, "Loppupiste");
 }
 
 function paivitaKartta(crd) {

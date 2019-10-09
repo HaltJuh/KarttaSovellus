@@ -55,21 +55,16 @@ function haeparkit(crd) {
       const paikkojajaljella = parkit.stations[i].spacesAvailable;
       const kapasiteetti = (+maara) + (+paikkojajaljella);
      const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
-     marker.addEventListener('click', function(event) {
+     marker.on('click', function() {
+      console.log(marker.getLatLng())
        geoCode(koordinaatit);
          setTimeout(function(){
 
          console.log(osoite3);
-       marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti)
-         }, 1000);
+
+       marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti +lähtöpiste + maalipiste)
+         }, 500);
      });
-
-
-
-
-
-
-
     }
   })
   .catch(function(virhe) {
@@ -80,7 +75,7 @@ function haeparkit(crd) {
 function omaSijainti(crd, teksti, ikoni) {
   console.log(crd.latitude+' ' +' '+ crd.longitude);
   L.marker([crd.latitude, crd.longitude], {icon: ikoni}).addTo(map)
-  .bindPopup(teksti)
+  .bindPopup(teksti + lähtöpiste)
   .openPopup();
 }
 L.esri.Support.cors = false;
