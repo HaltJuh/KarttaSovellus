@@ -15,13 +15,13 @@ let maalipiste = '<br/><button onclick="asetaMaaranpaa()" type="button" >'+'Aset
 function asetaLahtopiste() {
 alkupiste.latitude = popUpcordinaatit.lat;
 alkupiste.longitude = popUpcordinaatit.lng;
-console.log(alkupiste);
+console.log('alkupiste'+ alkupiste);
 const alkupisteOsoite = document.getElementById('lähtöpiste').innerHTML = osoite3;
 }
 function asetaMaaranpaa() {
   loppupiste.latitude = popUpcordinaatit.lat;
   loppupiste.longitude = popUpcordinaatit.lng;
-  console.log(loppupiste);
+  console.log('loppupiste'+ loppupiste);
   const loppupisteOsoite = document.getElementById('loppupiste').innerHTML = osoite3;
 }
 const haku = document.getElementById('haku');
@@ -68,7 +68,6 @@ decode.integers = function( value ) {
     }
 
   }
-
   return values
 }
 let polyline;
@@ -125,6 +124,7 @@ function navigaatio(lähtö,maali) {
         return tulos.json();
       }).
       then(function(tulos) {
+        console.log(tulos);
         let aika =  tulos.data.plan.itineraries[0].duration;
         let minuutit = aika/60
         let tunnit = minuutit/60;
@@ -165,15 +165,7 @@ function navigaatio(lähtö,maali) {
 
 function success(pos) {
   const crd = pos.coords;
-  alkupiste.latitude=crd.latitude;
-  alkupiste.longitude=crd.longitude;
-  console.log(alkupiste);
   //navigaatio(alkupiste,loppupiste)
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`More or less ${crd.accuracy} meters.`);
-
   paivitaKartta(crd);
 
   omaSijainti(crd, 'Olet tässä',punainenIkoni);
