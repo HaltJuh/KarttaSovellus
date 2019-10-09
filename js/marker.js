@@ -61,7 +61,7 @@ function haeparkit(crd) {
                 setTimeout(function () {
 
                     console.log(osoite3);
-                    marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' + paikkojajaljella + '/' + kapasiteetti)
+                    marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' + paikkojajaljella + '/' + kapasiteetti+lähtöpiste +maalipiste)
                 }, 1000);
             });
     }
