@@ -12,7 +12,7 @@
     width: 35%;
     background-color: #FCE903;
     padding-left: 10px;
-    
+
 }
 
 .tekstialue
@@ -37,7 +37,7 @@ h1 {
     font-size: 25px;
 }
 #otsikko {
-    background-color: background: rgb(0,0,0);
+    background-color: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(58,58,58,0.846673703661152) 100%, rgba(255,255,255,0) 100%);
     padding-top: 5px;
     padding-bottom: 5px;
