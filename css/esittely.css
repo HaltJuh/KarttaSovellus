@@ -8,4 +8,44 @@ body {
     border-width: 5px;
 }
 ul {
+    list-style-type: none;
+    align-items: stretch;
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-flow: row wrap;
+    position: center;
+    justify-content: space-around;
+}
+li {
+    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width: 300px;
+    width: 100%;
+    float: right;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    position: relative;
+    box-shadow: inset 2px 1px 5px #000000;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(273deg, rgba(255, 255, 255, 1) 0%, rgba(219, 219, 219, 1) 66%, rgba(215, 220, 220, 1) 80%);
+}
+#vasenpalkki {
+    width: 200px;
+    height: 100%;
+    border: 2px solid #000;
+    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    float: left;
+    padding: 10px;
+    border: 2px solid #000;
+}
+#palkki {
+    float: left;
+    height: 100%;
+    width: fit-content;
+    margin-bottom: 0px;
+    margin-top: 10px;
 }

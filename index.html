@@ -7,14 +7,39 @@
 
     <link href="css/karttasovellus.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
 </head>
 <body>
+<div id="otsikko"><h1>Kaupunkipyöräparkkien sijainnit</h1></div>
+<div id="mapJaSaa">
 <div id="saa"></div>
 <div id="map"></div>
+</div>
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
-
+<div id="navigaatioJaOhjeet">
+    <div id="navigaatio" class="visible">
+        <h4>Navigaatio palkki</h4>
+        <p>Lähtöpiste:</p>
+        <textarea class="tekstialue" id="lähtöpiste" readonly></textarea>
+        <p>Määränpää:</p>
+        <textarea class="tekstialue" id="loppupiste" readonly></textarea>
+        <p></p>
+        <button id="haku">Hae reitti</button>
+        <p></p>
+        Arvioitu matkan kesto: <a id="aika"></a>
+    </div>
+    <div id="ohjeet">
+        <h4>Käyttöohjeet</h4>
+        <p>[Ohjelman nimi] etsii kaikki HSL:seudun pyöräpaikat ja merkitsee ne kartalle.</p>
+        <p>Kartalla olevia merkkejä hiirellä painamalla saat esille sen pyöräpaikan tiedot.</p>
+        <p>Voitte sen jälkeen laittaa haluamanne merkit alkupisteeksi ja määränpääksi.</p>
+        <p>Hae nappia painamalla ohjelma laskee ja piirtää reitin kahden pisteen välille.</p>
+        <p>Ohjelma myös näyttää päivän sään ja kuinka pitkään matka arviolta kestää.</p>
+    </div>
+</div>
 <!-- Load Esri Leaflet from CDN -->
 <script src="https://unpkg.com/esri-leaflet"></script>
 
