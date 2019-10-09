@@ -34,7 +34,7 @@ function haeparkit(crd) {
             lat: parkit.stations[i].y,
             lng: parkit.stations[i].x,
         };
-        const radian = +(Math.PI / 180);
+        /*const radian = +(Math.PI / 180);
         console.log(crd.latitude);
         var R = 6371e3; // metres
         var φ1 = crd.latitude * radian;
@@ -48,7 +48,7 @@ function haeparkit(crd) {
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
         var d = R * c;
-        if (d < 5000) {
+        if (d < 5000) {*/
 
             const otsikko = parkit.stations[i].name;
             const maara = parkit.stations[i].bikesAvailable;
@@ -64,7 +64,7 @@ function haeparkit(crd) {
                     marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' + paikkojajaljella + '/' + kapasiteetti)
                 }, 1000);
             });
-        }
+        /*}*/
     }
   })
   .catch(function(virhe) {
