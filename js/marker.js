@@ -92,7 +92,7 @@ var geocodeService = L.esri.Geocoding.geocodeService();
     }
     console.log(result.address);
     console.log(result.address.Match_addr);
-    osoite3 = `${result.address.Match_addr}`;
+    osoite3 = `${result.address.LongLabel.slice(0,-5)}`;
     //console.log(osoite4);
     //return osoite4;
 
