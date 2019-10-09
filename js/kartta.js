@@ -125,21 +125,27 @@ function navigaatio(lähtö,maali) {
         return tulos.json();
       }).
       then(function(tulos) {
+        let aika =  tulos.data.plan.itineraries[0].duration;
+        let minuutit = aika/60
+        let tunnit = minuutit/60;
+        if(tunnit>1)
+        {
+          const time = document.getElementById('aika');
+          tunnit = Math.floor(tunnit);
+          minuutit= Math.floor(minuutit%60);
+          time.innerHTML=tunnit+' tuntia, '+minuutit + 'minuuttia';
+        }
+        else
+        {
+
+        }
+        console.log('Aika '+ aika);
+        console.log('Tunnit ja minuuti '+tunnit+':'+minuutit);
         const polylinePoints = [];
         console.log(tulos);
-        let väri = '';
         for(let i = 0;i<tulos.data.plan.itineraries[0].legs.length;i++)
         {
           polylinePoints.push([decode(tulos.data.plan.itineraries[0].legs[i].legGeometry.points)]); //tulos.data.plan.itineraries[0].legs[i].from.lat,tulos.data.plan.itineraries[0].legs[i].from.lon]);
-
-          if(i == tulos.data.plan.itineraries[0].legs[0])
-          {
-            //polylinePoints.push(tulos.data.plan.itineraries[0].legs[i].to.lat,tulos.data.plan.itineraries[0].legs[i].to.lon);
-          }
-          else
-          {
-
-          }
         }
 
         console.log(tulos.data.plan.itineraries[0].legs);
