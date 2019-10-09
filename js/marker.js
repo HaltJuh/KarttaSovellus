@@ -28,42 +28,43 @@ function haeparkit(crd) {
   })
   .then(function(parkit) {
     console.log(parkit);
-    for (let i = 0; i < parkit.stations.length; i++){
+    for (let i = 0; i < parkit.stations.length; i++) {
 
-      const koordinaatit = {
-        lat: parkit.stations[i].y,
-        lng: parkit.stations[i].x,
-      };/*
-      const radian = +(Math.PI/180);
-      console.log(crd.latitude);
-      var R = 6371e3; // metres
-      var φ1 = crd.latitude*radian;
-      var φ2 = koordinaatit.lat*radian;
-      var Δφ = (koordinaatit.lat-crd.latitude)*radian;
-      var Δλ = (koordinaatit.lng-crd.longitude)*radian;
+        const koordinaatit = {
+            lat: parkit.stations[i].y,
+            lng: parkit.stations[i].x,
+        };
+        const radian = +(Math.PI / 180);
+        console.log(crd.latitude);
+        var R = 6371e3; // metres
+        var φ1 = crd.latitude * radian;
+        var φ2 = koordinaatit.lat * radian;
+        var Δφ = (koordinaatit.lat - crd.latitude) * radian;
+        var Δλ = (koordinaatit.lng - crd.longitude) * radian;
 
-      var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-          Math.cos(φ1) * Math.cos(φ2) *
-          Math.sin(Δλ/2) * Math.sin(Δλ/2);
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-      var d = R * c;
-      if(d<1000)
-      ]*/
-      const otsikko = parkit.stations[i].name;
-      const maara = parkit.stations[i].bikesAvailable;
-      const paikkojajaljella = parkit.stations[i].spacesAvailable;
-      const kapasiteetti = (+maara) + (+paikkojajaljella);
-     const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
-     marker.addEventListener('click', function(event) {
-         osoite3 = '';
-       geoCode(koordinaatit);
-         setTimeout(function(){
+        var d = R * c;
+        if (d < 5000) {
 
-         console.log(osoite3);
-       marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti)
-         }, 800);
-     });
+            const otsikko = parkit.stations[i].name;
+            const maara = parkit.stations[i].bikesAvailable;
+            const paikkojajaljella = parkit.stations[i].spacesAvailable;
+            const kapasiteetti = (+maara) + (+paikkojajaljella);
+            const marker = L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
+            marker.addEventListener('click', function (event) {
+                osoite3 = 'Ei osoitetta';
+                geoCode(koordinaatit);
+                setTimeout(function () {
+
+                    console.log(osoite3);
+                    marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' + paikkojajaljella + '/' + kapasiteetti)
+                }, 1000);
+            });
+        }
     }
   })
   .catch(function(virhe) {
@@ -84,6 +85,7 @@ var geocodeService = L.esri.Geocoding.geocodeService();
     if (error) {
       return;
     }
+    console.log(result.address);
     console.log(result.address.Match_addr);
     osoite3 = `${result.address.Match_addr}`;
     //console.log(osoite4);
