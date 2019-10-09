@@ -16,6 +16,15 @@ const keltainenIkoni = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
+const vihreaIkoni = new L.Icon({
+  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
 let osoite3;
 const osoite =
     'http://api.digitransit.fi/routing/v1/routers/hsl/bike_rental';
@@ -47,25 +56,30 @@ function haeparkit(crd) {
             Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-        var d = R * c;
-        if (d < 5000) {*/
-
-            const otsikko = parkit.stations[i].name;
-            const maara = parkit.stations[i].bikesAvailable;
-            const paikkojajaljella = parkit.stations[i].spacesAvailable;
-            const kapasiteetti = (+maara) + (+paikkojajaljella);
-            const marker = L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
-            marker.addEventListener('click', function (event) {
-              popUpcordinaatit.lat=marker.getLatLng().lat;
-              popUpcordinaatit.lng =marker.getLatLng().lng;
-                osoite3 = 'Ei osoitetta';
-                geoCode(koordinaatit);
-                setTimeout(function () {
-
-                    console.log(osoite3);
-                    marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' + paikkojajaljella + '/' + kapasiteetti+lähtöpiste + maalipiste)
-                }, 1000);
-            });
+      var d = R * c;
+      if(d<1000)
+      ]*/
+      const otsikko = parkit.stations[i].name;
+      const maara = parkit.stations[i].bikesAvailable;
+      const paikkojajaljella = parkit.stations[i].spacesAvailable;
+      const kapasiteetti = (+maara) + (+paikkojajaljella);
+     const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
+     marker.addEventListener('click', function(event) {
+       popUpcordinaatit.lat= marker.getLatLng().lat;
+       popUpcordinaatit.lng= marker.getLatLng().lng;
+         osoite3 = '';
+       geoCode(koordinaatit);
+         setTimeout(function(){
+         console.log(osoite3);
+       marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti+lähtöpiste + maalipiste)
+         }, 800);
+     });
+      marker.addEventListener('popupopen', function() {
+        marker.setIcon(vihreaIkoni)
+      });
+      marker.addEventListener('popupclose', function() {
+        marker.setIcon(keltainenIkoni)
+      });
     }
   })
   .catch(function(virhe) {
@@ -82,6 +96,11 @@ function omaSijainti(crd, teksti, ikoni) {
     osoite3 = 'Sinun sijanti';
     popUpcordinaatit.lat = crd.latitude;
     popUpcordinaatit.lng = crd.longitude;
+    omaMarker.on('click',function() {
+      osoite3 = 'Sinun sijanti';
+      popUpcordinaatit.lat = crd.latitude;
+      popUpcordinaatit.lng = crd.longitude;
+    })
 }
 L.esri.Support.cors = false;
 var geocodeService = L.esri.Geocoding.geocodeService();
@@ -98,27 +117,4 @@ var geocodeService = L.esri.Geocoding.geocodeService();
 
   });
    console.log(tiedot);
-   return;
 }
-const osoite2 =
-    'https://nominatim.openstreetmap.org/reverse?format=geojson&';
-function haeparkit2(crd) {
-  const parametrit = `lat=${crd.lat}&lon=${crd.lng}`;
-  const url = osoite2 + parametrit;
-   fetch(url, {
-    mode: 'cors'
-  })
-  .then(function(vastaus) {
-    return vastaus.json();
-  })
-  .then(function(parkit) {
-    console.log(parkit);
-    return parkit.features.properties.address.road;
-  })
-  .catch(function(virhe) {
-    console.log(virhe);
-
-  });
-}
-
-
