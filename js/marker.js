@@ -58,13 +58,9 @@ function haeparkit(crd) {
 
      marker.addEventListener('click', function(event) {
          osoite3 = '';
-
        geoCode(koordinaatit);
          setTimeout(function(){
-
          console.log(osoite3);
-
-
        marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti +lähtöpiste + maalipiste)
          }, 500);
 
