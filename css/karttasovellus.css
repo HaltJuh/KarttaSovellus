@@ -47,6 +47,8 @@ h1 {
     width: fit-content;
     height: fit-content;
     padding-left: 5px;
+    border-bottom: 2px;
+    border: black;
 }
 #saa {
     overflow: visible;
