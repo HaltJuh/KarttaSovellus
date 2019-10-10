@@ -6,24 +6,69 @@
     <link href="css/esittely.css" rel="stylesheet">
 </head>
 <body>
-<img src="kuvat/placeholder.png">
+<img src="kuvat/banner.jpg">
 
 <div id="body">
 
 <div id="palkki"><div id="vasenpalkki"><h2>Ryhmä 10</h2>
     <div id="ryhma"><p>Juho<br>Teemu<br>Tommi</p>
-        <a id="index.html" href="url">Karttasovellus</a>
+        <a id="index.html" href="index.html">Karttasovellus</a>
     </div></div>
 </div>
     <ul>
         <li>Kartta<br><a href="https://leafletjs.com/">https://leafletjs.com/</a>
-            <br><p>Lisätietoja: On sama kartan ilmaisversio, kuin sähköauto esimerkissä.</p></li>
+            <p><a href="https://www.openstreetmap.org">https://www.openstreetmap.org</a></p>
+            <p>Lisätietoja: On sama kartan ilmaisversio, kuin sähköauto esimerkissä.</p></li>
         <li>Sää<br><a href="https://openweathermap.org/api">https://openweathermap.org/api</a>
             <p>Lisätitoja: Antaa Helsingin säätiedot. Käyttö on hieman rajoittunutta ilmaisuutensa takia.</p></li>
         <li>Pyöräpaikat<br><a href="https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental">https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental</a>
             <br><p>Lisätietoja: Sisältää reaaliaikaisen datan pyöräpisteistä ja pyörien määristä.</p></li>
         <li>Navigointi<br><a href=""></a>
             <p>Lisätietoja:</p></li>
+            <p>Lisätietoja: Antaa Helsingin säätiedot. Käyttö on hieman rajoittunutta ilmaisuutensa takia.</p></li>
+        <li><b>Pyöräpaikat</b><br><a href="https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental">https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental</a>
+            <br><p><b>Lisätietoja:</b> <br> Sisältää Helsingin, Vantaan ja Espoon pyöräasemien koordinaatit, nimet, reaaliaikaiset pyörien määrät ja asemien kapasiteetit.
+            Asemien osoitteet piti hakea Leafletin Reverse geocode -funktiolla, joka muuttaa koordinaatit osoitteiksi. Kaikkien pyöräasemien osoitteita ei voitu
+            kuitenkaan hakea samaan aikaan sillä Leafletin severit tulkitsee tämän ilmeisesti palvelunestohyökkäykseksi ja blokkaa pääsyn servereille. Tästä syystä
+            yksittäisen pyöräaseman osoitteen ja muiden tietojen hakeminen toteutetaan vasta sitten kun käyttäjä on klikannut kyseisen aseman markkeria.
+                <br><br><b>Reverse geocode -funktio:</b><br>
+                L.esri.Support.cors = false;<br>
+                var geocodeService = L.esri.Geocoding.geocodeService();<br>
+                function geoCode(koordinaatit2){<br>
+                geocodeService.reverse().latlng([koordinaatit2.lat, koordinaatit2.lng]).run(function(error, result) {<br>
+                if (error) {<br>
+                return; }<br>
+                osoite3 = `${result.address.Match_addr}`<br>
+                }); <br>
+                }
+               </p></li>
+        <li>Navigointi<br><a href="https://api.digitransit.fi/routing/v1/routers/finland/index/graphql">https://api.digitransit.fi/routing/v1/routers/finland/index/graphql</a>
+            <p>Lisätietoja: Hakee body parametrien perusteella tietoa koko suomen reiteistä.</p><br>
+            <p>Alla on esimerkki jossa koodi hakee apilla matkan tiedot, antaa matkan pituuden sekunteina, jonka jälkeen se muutetaan tunneiksi ja minuuteiksi.</p>
+            fetch('https://api.digitransit.fi/routing/v1/routers/finland/index/graphql', asetukset).<br>
+            then(function(tulos) <br>
+            {<br>
+            return tulos.json();<br>
+            })<br>
+            .then(function(tulos) <br>
+            {<br>
+            console.log(tulos);<br>
+            let aika =  tulos.data.plan.itineraries[0].duration;<br>
+            let minuutit = aika/60<br>
+            let tunnit = minuutit/60;<br>
+            if(tunnit>1)<br>
+            {
+            const time = document.getElementById('aika');<br>
+            tunnit = Math.floor(tunnit);<br>
+            minuutit= Math.floor(minuutit%60);<br>
+            time.innerHTML=tunnit+' tuntia, '+minuutit + ' minuuttia';<br>
+            }<br>
+            else<br>
+            {<br>
+            const time = document.getElementById('aika');<br>
+            minuutit= Math.floor(minuutit);<br>
+            time.innerHTML= minuutit + ' minuuttia';<br>
+            }</p></li>
     </ul>
     <div id="oikeapalkki"><img id="kuva_oikea" src="kuvat/placeholder_oikea.png"></div>
 </div>

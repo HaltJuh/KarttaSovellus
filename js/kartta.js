@@ -141,13 +141,10 @@ function navigaatio(lähtö,maali) {
           minuutit= Math.floor(minuutit);
           time.innerHTML= minuutit + ' minuuttia';
         }
-        console.log('Aika '+ aika);
-        console.log('Tunnit ja minuuti '+tunnit+':'+minuutit);
         const polylinePoints = [];
-        console.log(tulos);
         for(let i = 0;i<tulos.data.plan.itineraries[0].legs.length;i++)
         {
-          polylinePoints.push([decode(tulos.data.plan.itineraries[0].legs[i].legGeometry.points)]); //tulos.data.plan.itineraries[0].legs[i].from.lat,tulos.data.plan.itineraries[0].legs[i].from.lon]);
+          polylinePoints.push([decode(tulos.data.plan.itineraries[0].legs[i].legGeometry.points)]);
         }
 
         console.log(tulos.data.plan.itineraries[0].legs);
