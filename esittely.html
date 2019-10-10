@@ -6,26 +6,29 @@
     <link href="css/esittely.css" rel="stylesheet">
 </head>
 <body>
-<img src="kuvat/banner.jpg">
+<header >
+<img id="banner" src="kuvat/banner.jpg">
+</header>
 
 <div id="body">
 
 <div id="palkki"><div id="vasenpalkki"><h2>Ryhmä 10</h2>
-    <div id="ryhma"><p>Juho<br>Teemu<br>Tommi</p>
+    <div id="ryhma">
+            <p>
+                Juho<br><a><img class="ryhmäkuva" src="kuvat/placeholder.png"></a>
+                Teemu<br><a><img class="ryhmäkuva" src="kuvat/placeholder.png"></a>
+                Tommi<br><a><img class="ryhmäkuva" src="kuvat/placeholder.png"></a>
+            </p>
         <a id="index.html" href="index.html">Karttasovellus</a>
     </div></div>
 </div>
+    <article>
     <ul>
         <li>Kartta<br><a href="https://leafletjs.com/">https://leafletjs.com/</a>
             <p><a href="https://www.openstreetmap.org">https://www.openstreetmap.org</a></p>
             <p>Lisätietoja: On sama kartan ilmaisversio, kuin sähköauto esimerkissä.</p></li>
         <li>Sää<br><a href="https://openweathermap.org/api">https://openweathermap.org/api</a>
             <p>Lisätitoja: Antaa Helsingin säätiedot. Käyttö on hieman rajoittunutta ilmaisuutensa takia.</p></li>
-        <li>Pyöräpaikat<br><a href="https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental">https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental</a>
-            <br><p>Lisätietoja: Sisältää reaaliaikaisen datan pyöräpisteistä ja pyörien määristä.</p></li>
-        <li>Navigointi<br><a href=""></a>
-            <p>Lisätietoja:</p></li>
-            <p>Lisätietoja: Antaa Helsingin säätiedot. Käyttö on hieman rajoittunutta ilmaisuutensa takia.</p></li>
         <li><b>Pyöräpaikat</b><br><a href="https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental">https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental</a>
             <br><p><b>Lisätietoja:</b> <br> Sisältää Helsingin, Vantaan ja Espoon pyöräasemien koordinaatit, nimet, reaaliaikaiset pyörien määrät ja asemien kapasiteetit.
             Asemien osoitteet piti hakea Leafletin Reverse geocode -funktiolla, joka muuttaa koordinaatit osoitteiksi. Kaikkien pyöräasemien osoitteita ei voitu
@@ -70,7 +73,10 @@
             time.innerHTML= minuutit + ' minuuttia';<br>
             }</p></li>
     </ul>
+    </article>
+    <aside id="aside">
     <div id="oikeapalkki"><img id="kuva_oikea" src="kuvat/placeholder_oikea.png"></div>
+    </aside>
 </div>
 </body>
 </html>

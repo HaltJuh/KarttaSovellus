@@ -1,15 +1,22 @@
 body {
     background: rgb(252,78,78);
-    background: linear-gradient(261deg, rgba(252,78,78,0.6029762246695554) 0%, rgba(255,217,111,0.5665616588432247) 49%, rgba(255,247,0,0.8102591378348214) 100%);
+    background: linear-gradient(261deg, rgba(252,78,78,0.6029762246695554) 0%, rgba(255,217,111,0.5665616588432247) 50%, rgba(255,247,0,0.8102591378348214) 100%)fixed;
+}
+#banner
+{
+    margin-left: 190px;
+    display: flex;
+    flex-wrap: wrap;
 }
 #body {
-    background-color: white;
+    /*background-color: white;*/
     border: darkgrey;
     border-width: 5px;
     height: 1000px;
     width: 90%;
 }
 ul {
+    width: 75%;
     list-style-type: none;
     align-items: stretch;
     padding:0;
@@ -34,10 +41,29 @@ li {
     box-shadow: inset 2px 1px 5px #000000;
     background: rgb(255, 255, 255);
 }
+.ryhmäkuva
+{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+}
+#oikeapalkki
+{
+    left: 0;
+}
+#kuva_oikea
+{
+    height: 20%;
+}
+#aside
+{
+    width: 30%;
+}
 #vasenpalkki {
+    background-color: wheat;
     width: 200px;
-    height: 100%;
-    border: 2px solid #000;
+    height: 60%;
     font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
     float: left;
     padding: 10px;
