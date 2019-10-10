@@ -3,7 +3,7 @@ const tuloste = document.getElementById('saa');
 const xhrsaa = new XMLHttpRequest();
 
 function hae() {
-    xhrsaa.open('get', `http://api.openweathermap.org/data/2.5/forecast?id=658226&APPID=82459bd8956e05b8100a82dace85f749&units=metric`, true);
+    xhrsaa.open('get', `https://api.openweathermap.org/data/2.5/forecast?id=658226&APPID=82459bd8956e05b8100a82dace85f749&units=metric`, true);
     xhrsaa.onreadystatechange = tiedot;
     xhrsaa.send(null);
 }

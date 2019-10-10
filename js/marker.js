@@ -27,7 +27,7 @@ const vihreaIkoni = new L.Icon({
 
 let osoite3;
 const osoite =
-    'http://api.digitransit.fi/routing/v1/routers/hsl/bike_rental';
+    'https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental';
 function haeparkit(crd) {
   const parametrit = `?x=${crd.latitude}&y=${crd.longitude}`;
   const url = osoite + parametrit;
