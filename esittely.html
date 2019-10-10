@@ -24,12 +24,19 @@
 </div>
     <article>
     <ul>
-        <li>Kartta<br><a href="https://leafletjs.com/">https://leafletjs.com/</a>
+        <li><h3>Kartta</h3><br><a href="https://leafletjs.com/">https://leafletjs.com/</a>
             <p><a href="https://www.openstreetmap.org">https://www.openstreetmap.org</a></p>
             <p>Lisätietoja: On sama kartan ilmaisversio, kuin sähköauto esimerkissä.</p></li>
-        <li>Sää<br><a href="https://openweathermap.org/api">https://openweathermap.org/api</a>
-            <p>Lisätitoja: Antaa Helsingin säätiedot. Käyttö on hieman rajoittunutta ilmaisuutensa takia.</p></li>
-        <li><b>Pyöräpaikat</b><br><a href="https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental">https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental</a>
+        <li><h3>Sää</h3><br><a href="https://openweathermap.org/api">https://openweathermap.org/api</a>
+            <p>Lisätietoja: Antaa Helsingin säätiedot. Käyttö on hieman rajoittunutta ilmaisuutensa takia. Täysversiosta saisi esimerkiksi tunnin välein tietoja.
+            Säätietojen päivittymisellä on 10 minuutin väli, joten sen nopeampaa päivittämistä ei suositella turhien pyyntöjen välttämiseksi. Ilmaisversioon tarvitsi
+                rekisteröityä, jotta sai luotua oman koodin rajapinnan käyttöön.</p>
+            <p>            tuloste.innerHTML += `
+            <p style="color:red;">&ltdiv class="saapalkki">&ltdiv class="aika">Klo ${aika.substr(11, 2)}&lt/div></p>
+            <p style="color:blue;">&ltdiv class="lampo"> ${lampo}°C&lt/div></p>
+            <p style="color:green;">&ltdiv class="saakuva">&ltimg src="http://openweathermap.org/img/wn/${icon}@2x.png">&lt/div>&ltdiv class="tuuli">💨 ${(tuuli.speed.toFixed(1))} m/&lt/div></p>
+            &lt/div>`;         < = &,l,t </p></li>
+        <li><h3>Pyöräpaikat</h3><br><a href="https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental">https://api.digitransit.fi/routing/v1/routers/hsl/bike_rental</a>
             <br><p><b>Lisätietoja:</b> <br> Sisältää Helsingin, Vantaan ja Espoon pyöräasemien koordinaatit, nimet, reaaliaikaiset pyörien määrät ja asemien kapasiteetit.
             Asemien osoitteet piti hakea Leafletin Reverse geocode -funktiolla, joka muuttaa koordinaatit osoitteiksi. Kaikkien pyöräasemien osoitteita ei voitu
             kuitenkaan hakea samaan aikaan sillä Leafletin serverit tulkitsee tämän ilmeisesti palvelunestohyökkäykseksi ja blokkaa pääsyn servereille. Tästä syystä
@@ -45,7 +52,7 @@
                 }); <br>
                 }
                </p></li>
-        <li>Navigointi<br><a href="https://api.digitransit.fi/routing/v1/routers/finland/index/graphql">https://api.digitransit.fi/routing/v1/routers/finland/index/graphql</a>
+        <li><h3>Navigointi</h3><br><a href="https://api.digitransit.fi/routing/v1/routers/finland/index/graphql">https://api.digitransit.fi/routing/v1/routers/finland/index/graphql</a>
             <p>Lisätietoja: Hakee body parametrien perusteella tietoa koko suomen reiteistä.</p><br>
             <p>Alla on esimerkki jossa koodi hakee apilla matkan tiedot, antaa matkan pituuden sekunteina, jonka jälkeen se muutetaan tunneiksi ja minuuteiksi.</p>
             fetch('https://api.digitransit.fi/routing/v1/routers/finland/index/graphql', asetukset).<br>
@@ -72,6 +79,13 @@
             minuutit= Math.floor(minuutit);<br>
             time.innerHTML= minuutit + ' minuuttia';<br>
             }</p></li>
+        <li id="css"><h3>CSS</h3>
+            <p>Muutama käyttämämme tyyli.</p>
+            <p style="color:red;">background: #ffe259; (vanhin varalle)</p>
+            <p style="color:saddlebrown;">background: -webkit-linear-gradient(to right, #ffa751, #ffe259); (vanhat)</p>
+            <p style="color:green;">background: linear-gradient(to right, #ffa751, #ffe259); (uusimmat)<br>Luo taustoja joiden väri riippuu sijainnista.</p>
+            <p>box-shadow: inset 2px 1px 20px #e97c71;<br>Luo joko ulkoisia tai sisäisiä varjoja reunoille.</p>
+        </li>
     </ul>
     </article>
     <aside id="aside">

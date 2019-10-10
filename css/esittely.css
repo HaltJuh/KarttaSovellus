@@ -36,9 +36,9 @@ li {
     padding-left: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 2px solid #000;
+    border: 2px solid #cc531f;
     position: relative;
-    box-shadow: inset 2px 1px 5px #000000;
+    box-shadow: 2px 1px 8px 1px orangered;
     background: rgb(255, 255, 255);
 }
 #oikeapalkki
@@ -78,4 +78,9 @@ body {
 #palkki_oikea
 {
 top: 0;
+}
+#css {
+    -webkit-box-shadow: inset 1px 1px 12px 2px #000000;
+    box-shadow: inset 1px 1px 12px 2px #000000;
+    border: 0px solid #000000;
 }
