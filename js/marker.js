@@ -60,18 +60,18 @@ function haeparkit(crd) {
       if(d<1000)
       ]*/
       const otsikko = parkit.stations[i].name;
-      const maara = parkit.stations[i].bikesAvailable;
-      const paikkojajaljella = parkit.stations[i].spacesAvailable;
-      const kapasiteetti = (+maara) + (+paikkojajaljella);
-     const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
-     marker.addEventListener('click', function(event) {
-       popUpcordinaatit.lat= marker.getLatLng().lat;
-       popUpcordinaatit.lng= marker.getLatLng().lng;
+       const maara = parkit.stations[i].bikesAvailable;
+       const paikkojajaljella = parkit.stations[i].spacesAvailable;
+       const kapasiteetti = (+maara) + (+paikkojajaljella);
+       const marker =  L.marker([koordinaatit.lat, koordinaatit.lng], {icon: keltainenIkoni}).addTo(map);
+       marker.addEventListener('click', function(event) {
+         popUpcordinaatit.lat= marker.getLatLng().lat;
+         popUpcordinaatit.lng= marker.getLatLng().lng;
          osoite3 = '';
-       geoCode(koordinaatit);
+         geoCode(koordinaatit);
          setTimeout(function(){
-         console.log(osoite3);
-       marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti+lähtöpiste + maalipiste)
+           console.log(osoite3);
+           marker.bindPopup(otsikko + '<br>' + osoite3 + '<br>' + 'Pyörien määrä: ' +  paikkojajaljella + '/' + kapasiteetti+lähtöpiste + maalipiste)
          }, 800);
      });
       marker.addEventListener('popupopen', function() {
@@ -111,7 +111,7 @@ var geocodeService = L.esri.Geocoding.geocodeService();
     }
     console.log(result.address);
     console.log(result.address.Match_addr);
-    osoite3 = `${result.address.Match_addr}`;
+    osoite3 = `${result.address.Match_addr}`
     //console.log(osoite4);
     //return osoite4;
 
