@@ -39,7 +39,7 @@
                </p></li>
         <li>Navigointi<br><a href="https://api.digitransit.fi/routing/v1/routers/finland/index/graphql">https://api.digitransit.fi/routing/v1/routers/finland/index/graphql</a>
             <p>Lisätietoja: Hakee body parametrien perusteella tietoa koko suomen reiteistä.</p><br>
-            <p>Koodi hakee matkan tiedot, antaa matkan pituuden sekunteina ja muuttaa sen tunti:minuutti muotoon</p>
+            <p>Alla on esimerkki jossa koodi hakee apilla matkan tiedot, antaa matkan pituuden sekunteina, jonka jälkeen se muutetaan tunneiksi ja minuuteiksi.</p>
             fetch('https://api.digitransit.fi/routing/v1/routers/finland/index/graphql', asetukset).<br>
             then(function(tulos) <br>
             {<br>
