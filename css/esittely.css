@@ -6,6 +6,8 @@ body {
     background-color: white;
     border: darkgrey;
     border-width: 5px;
+    height: 1000px;
+    width: 90%;
 }
 ul {
     list-style-type: none;
@@ -22,8 +24,8 @@ li {
     margin-left: 10%;
     margin-right: 10%;
     min-width: 300px;
-    width: 100%;
-    float: right;
+    width: 50%;
+    float: left;
     padding-left: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -31,7 +33,6 @@ li {
     position: relative;
     box-shadow: inset 2px 1px 5px #000000;
     background: rgb(255, 255, 255);
-    background: linear-gradient(273deg, rgba(255, 255, 255, 1) 0%, rgba(219, 219, 219, 1) 66%, rgba(215, 220, 220, 1) 80%);
 }
 #vasenpalkki {
     width: 200px;
@@ -48,4 +49,13 @@ li {
     width: fit-content;
     margin-bottom: 0px;
     margin-top: 10px;
+}
+body {
+    width: auto;
+    height: auto;
+}
+/*Kuvat*/
+#palkki_oikea {
+    float: right;
+    position: absolute;
 }
