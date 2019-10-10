@@ -37,8 +37,33 @@
                 }); <br>
                 }
                </p></li>
-        <li>Navigointi<br><a href=""></a>
-            <p>Lisätietoja:</p></li>
+        <li>Navigointi<br><a href="https://api.digitransit.fi/routing/v1/routers/finland/index/graphql">https://api.digitransit.fi/routing/v1/routers/finland/index/graphql</a>
+            <p>Lisätietoja: Hakee body parametrien perusteella tietoa koko suomen reiteistä.</p><br>
+            <p>Alla on esimerkki jossa koodi hakee apilla matkan tiedot, antaa matkan pituuden sekunteina, jonka jälkeen se muutetaan tunneiksi ja minuuteiksi.</p>
+            fetch('https://api.digitransit.fi/routing/v1/routers/finland/index/graphql', asetukset).<br>
+            then(function(tulos) <br>
+            {<br>
+            return tulos.json();<br>
+            })<br>
+            .then(function(tulos) <br>
+            {<br>
+            console.log(tulos);<br>
+            let aika =  tulos.data.plan.itineraries[0].duration;<br>
+            let minuutit = aika/60<br>
+            let tunnit = minuutit/60;<br>
+            if(tunnit>1)<br>
+            {
+            const time = document.getElementById('aika');<br>
+            tunnit = Math.floor(tunnit);<br>
+            minuutit= Math.floor(minuutit%60);<br>
+            time.innerHTML=tunnit+' tuntia, '+minuutit + ' minuuttia';<br>
+            }<br>
+            else<br>
+            {<br>
+            const time = document.getElementById('aika');<br>
+            minuutit= Math.floor(minuutit);<br>
+            time.innerHTML= minuutit + ' minuuttia';<br>
+            }</p></li>
     </ul>
     <div id="oikeapalkki"><img id="kuva_oikea" src="kuvat/placeholder_oikea.png"></div>
 </div>
