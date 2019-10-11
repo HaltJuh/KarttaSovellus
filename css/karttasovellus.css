@@ -70,6 +70,9 @@ html, body{
     width: 250px;
     height: 20px;
 }
+#aika {
+    font-weight: bold;
+}
 .visible
 {
 
@@ -127,3 +130,19 @@ h1 {
     padding-left: 0px;
 }
 /*Saatiedot paattyy*/
+#haku {
+    background-color: #303030;
+    border: none;
+    color: white;
+    padding: 6px 10px 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#haku {
+    border-radius: 10px;
+}
