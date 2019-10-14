@@ -1,22 +1,38 @@
 body {
-    background: rgb(252,78,78);
-    background: linear-gradient(261deg, rgba(252,78,78,0.6029762246695554) 0%, rgba(255,217,111,0.5665616588432247) 50%, rgba(255,247,0,0.8102591378348214) 100%)fixed;
+    font-family: 'Ruluko', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background: rgb(87,117,144);
+    background: linear-gradient(90deg, rgba(87,117,144,1) 0%, rgba(242,165,65,1) 57%, rgba(243,202,64,1) 100%);
+}
+#otsikkotausta {
+    background: #333c4be0;
+    box-shadow: 2px 1px 20px #D78A76;
 }
 #banner
 {
-    margin-left: 190px;
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 100%;
+    height: auto;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 3px 14px 23px -1px rgb(0, 0, 0);
+    z-index: 2000;
 }
 #body {
     /*background-color: white;*/
     border: darkgrey;
     border-width: 5px;
     height: 1000px;
-    width: 90%;
+    margin: 0px;
+    width: 100%;
+    font-family: 'Ruluko', sans-serif;
 }
-ul {
-    width: 75%;
+#lista {
+    width: 65%;
+    float: right;
     list-style-type: none;
     align-items: stretch;
     padding:0;
@@ -26,20 +42,23 @@ ul {
     position: center;
     justify-content: space-around;
 }
-li {
-    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
-    margin-left: 10%;
-    margin-right: 10%;
+.api {
+    overflow-x: auto;
+    font-family: 'Ruluko', sans-serif;
+    font-size: 20px;
+    margin-left: 3%;
+    margin-right: 3%;
     min-width: 300px;
-    width: 70%;
+    width: 94%;
     float: left;
     padding-left: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 2px solid #cc531f;
+    border: 1px solid #000000;
     position: relative;
-    box-shadow: 2px 1px 8px 1px orangered;
+    box-shadow: inset 2px 1px 19px 2px rgba(87,117,144,1);
     background: rgb(255, 255, 255);
+    padding: 0px 20px 0px 20px;
 }
 #oikeapalkki
 {
@@ -57,18 +76,25 @@ li {
 }
 #vasenpalkki {
     background-color: white;
-    width: 200px;
-    height: 27%;
-    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    width: 100%;
+    height: 22%;
+    font-family: 'Ruluko', sans-serif;
+    font-size: 20px;
     float: left;
-    padding: 10px;
-    border: 2px solid #000;
+    padding: 0px 10px 0px 10px;
+    margin: 15px 10px 10px 24px;
+    border: 1px solid #000000;
+    position: relative;
+    box-shadow: inset 2px 1px 19px 2px rgba(87,117,144,1);
+    border: 10px solid rgb(42, 59, 73, 0.93);
+    border-radius: 22px;
 }
 #palkki {
     float: left;
     height: 100%;
     margin-bottom: 0px;
     margin-top: 10px;
+    width: 24%;
 }
 body {
     width: auto;
@@ -84,3 +110,48 @@ top: 0;
     box-shadow: inset 1px 1px 12px 2px #000000;
     border: 0px solid #000000;
 }
+/*valikko*/
+#valikko {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333c4b;
+    z-index: 100;
+    box-shadow: 0px 9px 7px -2px rgba(87,117,144,0.4);
+}
+
+.valikot {
+    float: left;
+    display: inline-block;
+    width: 20%;
+    font-family: 'Cherry Cream Soda', cursive;
+}
+.valikot a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.valikot a:hover {
+    background-color: #111111;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.sticky + #body {
+    padding-top: 50px;
+}
+#ryhma a {
+    background-color: #ffd024;
+    border-radius: 10px;
+    padding: 14px;
+    border: rgb(42, 59, 73, 0.93) solid 3px;
+    font-family: 'Ruluko', sans-serif;
+}
+
