@@ -145,3 +145,19 @@ h1 {
 #haku {
     border-radius: 10px;
 }
+#esittely {
+    background-color: #303030c7;
+    border: none;
+    color: white;
+    padding: 6px 12px 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#esittely:hover {
+    background-color: black;
+}

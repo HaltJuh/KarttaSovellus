@@ -148,10 +148,14 @@ top: 0;
     padding-top: 50px;
 }
 #ryhma a {
+    color: #333c4b;
     background-color: #ffd024;
     border-radius: 10px;
     padding: 14px;
     border: rgb(42, 59, 73, 0.93) solid 3px;
     font-family: 'Ruluko', sans-serif;
+}
+#ryhma a:hover {
+    background-color: #ff991a;
 }
 
