@@ -19,7 +19,7 @@ function hae() {
             tuloste.innerHTML += `
 <div class="saapalkki"><div class="aika">Klo ${aika.substr(11, 2)}</div>
 <div class="lampo"> ${lampo}°C</div>
-<div class="saakuva"><img src="http://openweathermap.org/img/wn/${icon}@2x.png"></div><div class="tuuli">💨 ${(tuuli.speed.toFixed(1))} m/s</div>
+<div class="saakuva"><img src="https://openweathermap.org/img/wn/${icon}@2x.png"></div><div class="tuuli">💨 ${(tuuli.speed.toFixed(1))} m/s</div>
 </div>`;
             console.log(lampo);
             }
