@@ -31,7 +31,7 @@ body {
     font-family: 'Ruluko', sans-serif;
 }
 #lista {
-    width: calc(94% - 400px);
+    width: calc(93% - 400px);
     float: right;
     list-style-type: none;
     align-items: stretch;
@@ -53,9 +53,9 @@ body {
     padding-left: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 1px solid #000000;
+    border: 1px solid #333c4b;
     position: relative;
-    box-shadow: inset 2px 1px 19px 2px rgba(87,117,144,1);
+    box-shadow: inset 2px 2px 8px 2px rgba(47, 62, 76, 0.79);
     background: rgb(255, 255, 255);
     padding: 0px 20px 0px 20px;
 }
@@ -96,6 +96,9 @@ body {
     width: 400px;
     background-color: #ffbd01;
     padding-bottom: 30px;
+    border-right: #333c4b solid 1px;
+    border-bottom: #333c4b solid 1px;
+    box-shadow: 1px 2px 8px 4px rgba(58, 74, 88, 0.65)
 }
 body {
     width: auto;
@@ -161,9 +164,9 @@ top: 0;
 }
 #omakuva {
     float: left;
-    margin: 20px 0px 0px 25px;
+    margin: 30px 0px 0px 25px;
 }
 #video {
     float: left;
-    margin: 30px 0px 0px 25px;
+    margin: 60px 0px 30px 25px;
 }
