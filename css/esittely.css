@@ -83,7 +83,7 @@ body {
     padding: 0px 10px 0px 10px;
     margin: 15px 10px 10px 24px;
     position: relative;
-    box-shadow: inset 2px 1px 19px 2px rgba(87, 117, 144, 1);
+    box-shadow: inset 2px 2px 8px 2px rgba(47, 62, 76, 0.19);
     border: 10px solid rgb(42, 59, 73, 0.93);
     border-radius: 15px;
     text-align: center;
@@ -98,7 +98,7 @@ body {
     padding-bottom: 30px;
     border-right: #333c4b solid 1px;
     border-bottom: #333c4b solid 1px;
-    box-shadow: 1px 2px 8px 4px rgba(58, 74, 88, 0.65)
+    box-shadow: 1px 2px 8px 1px rgba(58, 74, 88, 0.74);
 }
 body {
     width: auto;
