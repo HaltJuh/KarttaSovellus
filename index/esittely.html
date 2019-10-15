@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>esittely</title>
     <link href="../css/esittely.css" rel="stylesheet">
+    <link href="../css/kapea.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ruluko&display=swap" rel="stylesheet">
 </head>
@@ -27,7 +28,15 @@
                 Tommi<br>
             </p>
         <a id="index.html" href="index.html"><b>Karttasovellus</b></a>
-    </div></div>
+    </div>
+</div>
+    <img id="omakuva" src="../kuvat/placeholder_oikea.png">
+    <video id="video" width="350" height="197" controls>
+        <source src="../Esittelyvideo.mp4" type="video/mp4">
+        <source src="../Esittelyvideo.ogv" type="video/ogv">
+        <source src="../Esittelyvideo.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
 </div>
     <article>
     <ul id="lista">
@@ -37,7 +46,7 @@
         <li class="api" id="sää"><h3>Sää</h3><br><a href="https://openweathermap.org/api">https://openweathermap.org/api</a>
             <p>Lisätietoja: Antaa Helsingin säätiedot. Käyttö on hieman rajoittunutta ilmaisuutensa takia. Täysversiosta saisi esimerkiksi tunnin välein tietoja.
             Säätietojen päivittymisellä on 10 minuutin väli, joten sen nopeampaa päivittämistä ei suositella turhien pyyntöjen välttämiseksi. Ilmaisversioon tarvitsi
-                rekisteröityä, jotta sai luotua oman koodin rajapinnan käyttöön.</p>
+                rekisteröityä, jotta sai luotua oman avaimen rajapinnan käyttöön.</p>
             <p>            tuloste.innerHTML += `
             <p style="color:red;">&ltdiv class="saapalkki">&ltdiv class="aika">Klo ${aika.substr(11, 2)}&lt/div></p>
             <p style="color:blue;">&ltdiv class="lampo"> ${lampo}°C&lt/div></p>
